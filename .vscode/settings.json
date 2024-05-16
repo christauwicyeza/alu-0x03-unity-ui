@@ -52,5 +52,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "alu-0x02-unity-scripting.sln"
+    "dotnet.defaultSolution": "alu-0x02-unity-scripting.sln",
+    "dotnet.preferCSharpExtension": true
 }

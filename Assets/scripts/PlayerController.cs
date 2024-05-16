@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 3f;
+    public float speed = 50f;
     private Rigidbody rb;
     void Start()
     { 
         rb = GetComponent<Rigidbody>();
+        Debug.Log("game started");
     }
 
     // Update is called once per frame

@@ -23,6 +23,14 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(new Vector3(horizontalMove, 0.0f, verticalMove) * (speed * Time.deltaTime)); 
     }
 
+     void Update()
+    {
+        if (health == 0)
+        {
+            Debug.Log("Game Over!"); 
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
+            ResetPlayer(); 
+        }
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Pickup"))

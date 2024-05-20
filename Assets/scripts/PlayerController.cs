@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Callbacks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -29,7 +30,6 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Game Over!"); 
             SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
-            ResetPlayer(); 
         }
     void OnTriggerEnter(Collider other)
     {

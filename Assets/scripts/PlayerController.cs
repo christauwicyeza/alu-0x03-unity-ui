@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (health == 0)
+        if (health <= 0)
         {
             Debug.Log("Game Over!");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);

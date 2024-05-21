@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement; // Added this line
+using UnityEngine.SceneManagement;
+using UnityEngine.UI; 
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         Debug.Log("game started");
+        SetScoreText();
     }
 
     // Update is called once per frame
@@ -39,8 +41,9 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Pickup"))
         {
             score++;
-            Debug.Log("Score: " + score);
+            // Debug.Log("Score: " + score);
             other.gameObject.SetActive(false);
+            SetScoreText();
         }
         else if (other.gameObject.CompareTag("Trap"))
         {
@@ -51,5 +54,8 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("You win!");
         }
+    }
+    void SetScoreText(){
+        scoreText.text = "Score:" + score;
     }
 }

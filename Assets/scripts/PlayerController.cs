@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private int score = 0;
     public int health = 5;
+    public Text scoreText;
 
     void Start()
     {

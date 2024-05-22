@@ -11,12 +11,14 @@ public class PlayerController : MonoBehaviour
     private int score = 0;
     public int health = 5;
     public Text scoreText;
+    public Text healthText;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         Debug.Log("game started");
         SetScoreText();
+        SetHealthText();
     }
 
     // Update is called once per frame
@@ -29,10 +31,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (health <= 0)
+        if (health == 0)
         {
             Debug.Log("Game Over!");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            ResetPlayer();
         }
     }
 
@@ -48,7 +51,8 @@ public class PlayerController : MonoBehaviour
         else if (other.gameObject.CompareTag("Trap"))
         {
             health--;
-            Debug.Log("Health: " + health);
+            SetHealthText();
+            // Debug.Log("Health: " + health);
         }
         else if (other.gameObject.CompareTag("Goal"))
         {
@@ -58,4 +62,15 @@ public class PlayerController : MonoBehaviour
     void SetScoreText(){
         scoreText.text = "Score:" + score;
     }
+    void SetHealthText(){
+        healthText.text = "Health: " + health;
+    }
+    
+    void ResetPlayer(){
+        score = 0;
+        health = 0;
+        SetHealthText();
+        SetScoreText();
+    }
+    
 }

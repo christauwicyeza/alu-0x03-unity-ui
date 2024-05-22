@@ -72,17 +72,25 @@ public class PlayerController : MonoBehaviour
             winLoseText.text = "You Win!";
             winLoseText.color = Color.black;
             winLoseBG.color = Color.green;
+            StartCoroutine(LoadScene(3));
         }
 
-    void GameOver(){
+    void GameOver()
+    {
             winLoseBG.gameObject.SetActive(true);
             winLoseText.text = "Game Over!";
             winLoseText.color = Color.white;
             winLoseBG.color = Color.red;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
-            ResetPlayer();
+           StartCoroutine(LoadScene(3));
 
         }
+
+    IEnumerator LoadScene(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Reload the scene
+        ResetPlayer();
+    }    
 
     void ResetPlayer(){
         score = 0;

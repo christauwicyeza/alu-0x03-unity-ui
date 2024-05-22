@@ -37,6 +37,10 @@ public class PlayerController : MonoBehaviour
         {
             GameOver();
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("menu");
+        }
     }
 
     void OnTriggerEnter(Collider other)

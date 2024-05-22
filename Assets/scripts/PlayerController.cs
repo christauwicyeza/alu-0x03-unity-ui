@@ -35,9 +35,7 @@ public class PlayerController : MonoBehaviour
     {
         if (health == 0)
         {
-            Debug.Log("Game Over!");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            ResetPlayer();
+            GameOver();
         }
     }
 
@@ -69,17 +67,28 @@ public class PlayerController : MonoBehaviour
         healthText.text = "Health: " + health;
     }
     
-    void ResetPlayer(){
-        score = 0;
-        health = 0;
-        SetHealthText();
-        SetScoreText();
-    }
     void Win(){
             winLoseBG.gameObject.SetActive(true);
             winLoseText.text = "You Win!";
             winLoseText.color = Color.black;
             winLoseBG.color = Color.green;
         }
+
+    void GameOver(){
+            winLoseBG.gameObject.SetActive(true);
+            winLoseText.text = "Game Over!";
+            winLoseText.color = Color.white;
+            winLoseBG.color = Color.red;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
+            ResetPlayer();
+
+        }
+
+    void ResetPlayer(){
+        score = 0;
+        health = 0;
+        SetHealthText();
+        SetScoreText();
+    }
     
 }
